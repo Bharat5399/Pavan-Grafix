@@ -93,23 +93,25 @@ const ServicePage = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          style={{
-            columns: '1 300px',
-            gap: '2rem',
-            width: '100%'
-          }}
+          style={
+            serviceId === 'political-design'
+              ? { display: 'flex', justifyContent: 'center', width: '100%' }
+              : { columns: '1 300px', gap: '2rem', width: '100%' }
+          }
         >
           {galleryImages.map((src, index) => (
             <motion.div
               key={index}
               whileHover={{ scale: 1.02 }}
               style={{
-                marginBottom: '2rem',
+                marginBottom: serviceId === 'political-design' ? '0' : '2rem',
                 breakInside: 'avoid',
                 borderRadius: '15px',
                 overflow: 'hidden',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
-                border: '1px solid rgba(255,255,255,0.1)'
+                boxShadow: '0 10px 40px rgba(0,0,0,0.8)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                width: serviceId === 'political-design' ? '100%' : 'auto',
+                maxWidth: serviceId === 'political-design' ? '1000px' : 'none'
               }}
             >
               <img 
