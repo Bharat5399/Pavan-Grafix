@@ -33,10 +33,12 @@ const ServicePage = () => {
     );
   }
 
-  // Generate some placeholder images for the gallery
-  const galleryImages = Array.from({ length: 6 }).map((_, i) => 
-    `https://picsum.photos/seed/${serviceId}-${i}/800/${i % 2 === 0 ? 1000 : 800}`
-  );
+  // Generate some placeholder images for the gallery, except for Political Design which uses a specific image
+  const galleryImages = serviceId === 'political-design'
+    ? ['/political-banner.jpg']
+    : Array.from({ length: 6 }).map((_, i) => 
+        `https://picsum.photos/seed/${serviceId}-${i}/800/${i % 2 === 0 ? 1000 : 800}`
+      );
 
   return (
     <div style={{ 
