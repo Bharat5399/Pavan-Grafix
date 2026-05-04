@@ -89,7 +89,7 @@ const Contact = () => {
             </motion.a>
 
             <motion.a 
-              href="https://instagram.com/x_pawnya_0020"
+              href="https://instagram.com/x_pawnya_2663"
               target="_blank"
               rel="noreferrer"
               whileHover={{ scale: 1.1, y: -5 }}
@@ -105,7 +105,7 @@ const Contact = () => {
               }}
             >
               <Camera size={20} />
-              <span style={{ fontWeight: 'bold' }}>@x_pawnya_0020</span>
+              <span style={{ fontWeight: 'bold' }}>@x_pawnya_2663</span>
             </motion.a>
           </div>
         </motion.div>
