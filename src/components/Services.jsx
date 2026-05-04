@@ -18,7 +18,7 @@ const servicesList = [
   { id: 2, title: 'सिनेमॅटिक डिझाईन', en: 'Cinematic Design', icon: <Video size={32} color="#ff007f" /> },
   { id: 3, title: 'लग्नपत्रिका डिझाईन', en: 'Wedding Card Design', icon: <Heart size={32} color="#00f0ff" /> },
   { id: 4, title: 'लग्न बॅनर डिझाईन', en: 'Wedding Banner Design', icon: <ImageIcon size={32} color="#ff007f" /> },
-  { id: 5, title: 'पॉलिटिकल डिझाईन', en: 'Political Design', icon: <Flag size={32} color="#00f0ff" /> },
+  { id: 5, title: 'पॉलिटिकल डिझाईन', en: 'Political Design', icon: <Flag size={32} color="#00f0ff" />, image: '/political-banner.jpg' },
   { id: 6, title: 'लोगो डिझाईन', en: 'Logo Design', icon: <PenTool size={32} color="#ff007f" /> },
   { id: 7, title: 'बर्थडे डिझाईन', en: 'Birthday Design', icon: <Gift size={32} color="#00f0ff" /> },
   { id: 8, title: 'ऑइलपेंट डिझाईन', en: 'Oilpaint Design', icon: <Brush size={32} color="#ff007f" /> },
@@ -96,6 +96,11 @@ const Services = () => {
                 textAlign: 'center',
                 cursor: 'pointer',
                 transition: 'border 0.3s ease',
+                ...(service.image ? {
+                  backgroundImage: `linear-gradient(rgba(5, 5, 16, 0.85), rgba(5, 5, 16, 0.95)), url(${service.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                } : {})
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.border = '1px solid var(--neon-cyan)';
