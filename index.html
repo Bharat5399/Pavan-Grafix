@@ -1,19 +1,852 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pavan Graphics | Professional 3D & Cinematic Design</title>
-    <meta name="description" content="Pavan Graphics offers premium social media design, cinematic design, wedding cards, banners, political design, and more. Contact Pavan Bhaiya Rathod for monthly packages." />
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pavan Grafix | Photography studio for weddings, portraits and events</title>
+<meta name="description" content="Pavan Grafix is a photography studio for weddings, pre-wedding shoots, portraits, events, products and maternity sessions. Check availability and book your date.">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pavan Grafix | Photography studio">
+<meta property="og:description" content="Weddings, portraits, events and products, photographed like film.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pavan Grafix | Photography studio">
+<meta name="twitter:description" content="Weddings, portraits, events and products, photographed like film.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%B7%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<!-- SEO: replace the placeholder values (url, phone, telephone, address) with the real business details -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Photographer","name":"Pavan Grafix","description":"Photography studio for weddings, portraits, events and products.","url":"https://pavan-grafix.vercel.app","telephone":"+91 00000 00000","address":{"@type":"PostalAddress","addressLocality":"Your city","addressCountry":"IN"},"sameAs":[]}
+</script>
+<style>
+:root{
+  --bg:#0a0a0a; --bg2:#12100e; --ink:#f3ede2; --muted:#a8a194; --gold:#d4af37; --gold2:#f0d27a;
+  --line:rgba(243,237,226,.14); --r:4px;
+  --serif:'Bodoni Moda','Playfair Display',Georgia,serif;
+  --sans:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color-scheme:dark; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{background:var(--bg);scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+html.locked{overflow:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1rem;line-height:1.65;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;margin:0}
+p{margin:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* film grain, static */
+body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* loader: the shutter opening is the one orchestrated moment */
+#loader{display:none}
+.js #loader{display:grid;place-items:center;position:fixed;inset:0;z-index:100;background:#000;
+  -webkit-mask:radial-gradient(circle at 50% 50%,transparent var(--hole,0px),#000 calc(var(--hole,0px) + 1px));
+  mask:radial-gradient(circle at 50% 50%,transparent var(--hole,0px),#000 calc(var(--hole,0px) + 1px))}
+.ld-box{display:grid;place-items:center;gap:1rem;transition:opacity .35s}
+.ld-box svg{width:104px;height:104px}
+.ld-num{font-family:var(--serif);font-size:1.6rem;color:var(--gold2);font-variant-numeric:tabular-nums}
+.ld-ring{position:fixed;left:50%;top:50%;width:0;height:0;border:1px solid var(--gold);border-radius:50%;transform:translate(-50%,-50%);z-index:101;pointer-events:none;display:none}
+.js .ld-ring{display:block}
+
+/* cursor */
+.cursor{display:none}
+@media (hover:hover) and (pointer:fine){
+  .js.fine-cursor, .js.fine-cursor a, .js.fine-cursor button{cursor:none}
+  .js.fine-cursor input,.js.fine-cursor select,.js.fine-cursor textarea{cursor:text}
+  .cursor{display:grid;place-items:center;position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid var(--gold);border-radius:50%;z-index:120;pointer-events:none;
+    transition:width .25s,height .25s,margin .25s,background .25s,opacity .2s;opacity:0}
+  .cursor.on{opacity:1}
+  .cursor.big{width:86px;height:86px;margin:-43px 0 0 -43px;background:var(--gold)}
+  .cursor span{font-size:.78rem;font-weight:700;color:#0a0a0a;opacity:0;transition:opacity .2s}
+  .cursor.big span{opacity:1}
+}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;padding:env(safe-area-inset-top,0px) 6vw 0;transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.solid{background:rgba(10,10,10,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-family:var(--serif);font-size:1.3rem;letter-spacing:.02em}
+.brand svg{width:38px;height:38px}
+.links{display:flex;gap:2rem;font-size:.95rem}
+.links a{text-decoration:none;color:var(--muted);transition:color .2s;padding:.4rem 0}
+.links a:hover{color:var(--ink)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:999px;padding:.45rem 1rem;font-size:.9rem;position:relative;z-index:70}
+.menu{position:fixed;inset:0;z-index:65;background:var(--bg2);display:flex;flex-direction:column;justify-content:center;gap:1rem;padding:6vw;
+  visibility:hidden;clip-path:circle(0 at calc(100% - 60px) 40px);transition:clip-path .6s cubic-bezier(.7,0,.2,1),visibility 0s .6s}
+.menu.open{visibility:visible;clip-path:circle(160% at calc(100% - 60px) 40px);transition:clip-path .6s cubic-bezier(.7,0,.2,1),visibility 0s}
+.menu a{font-family:var(--serif);font-size:clamp(2.4rem,11vw,4rem);text-decoration:none;line-height:1.1}
+
+/* hero */
+.hero{position:relative;min-height:calc(100svh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));min-height:calc(100vh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));display:flex;align-items:flex-end;overflow:hidden;padding:0 6vw clamp(3rem,8vh,6rem)}
+@supports (height:100svh){.hero{min-height:calc(100svh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))}}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-fallback{display:none;position:absolute;right:8vw;top:50%;width:min(44vw,460px);aspect-ratio:1;transform:translateY(-50%);border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#3b5570 0,#0a1420 30%,#05080c 55%,#171410 56%,#171410 68%,#d4af37 69%,#d4af37 70%,#0e0e0e 71%);box-shadow:0 0 90px rgba(212,175,55,.18)}
+body.no-3d .hero-fallback{display:block}
+.hero-copy{position:relative;z-index:2;max-width:min(100%,900px)}
+.hero h1{font-size:clamp(4rem,14vw,11.5rem);line-height:.88;letter-spacing:-.02em;font-weight:500}
+.line{display:block;overflow:hidden;padding:0 .04em .1em}
+.ch{display:inline-block}
+.js .ch{transform:translateY(108%);transition:transform 1.1s cubic-bezier(.2,.8,.2,1) calc(var(--i) * 45ms)}
+.js body.ready .ch{transform:none}
+.hero-sub{margin-top:1.6rem;max-width:34rem;font-size:clamp(1.05rem,2vw,1.3rem);color:var(--muted)}
+.hero-cta{margin-top:2rem;display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center}
+.js .hero-sub,.js .hero-cta{opacity:0;transform:translateY(14px);transition:opacity .9s .7s,transform .9s .7s}
+.js body.ready .hero-sub,.js body.ready .hero-cta{opacity:1;transform:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--gold);color:#0a0a0a;border:0;border-radius:999px;padding:.95rem 1.8rem;font-weight:700;text-decoration:none;transition:background .2s,transform .2s}
+.btn:hover{background:var(--gold2)}
+.btn:active{transform:scale(.98)}
+.textlink{text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:.15rem}
+
+/* sections */
+.sec{padding:clamp(4.5rem,10vw,8.5rem) 6vw}
+.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1.5rem;margin-bottom:2.5rem}
+.sec h2{font-size:clamp(2.4rem,6vw,4.6rem)}
+.lede{color:var(--muted);max-width:30rem;margin-top:1rem}
+.filters{display:flex;flex-wrap:wrap;gap:.5rem}
+.filters button{background:none;border:1px solid var(--line);border-radius:999px;padding:.5rem 1.05rem;font-size:.92rem;color:var(--muted);transition:all .2s}
+.filters button:hover{color:var(--ink);border-color:var(--muted)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#0a0a0a;border-color:var(--ink)}
+
+/* gallery */
+.grid{columns:3 280px;column-gap:1.2rem}
+.ph{position:relative;margin:0 0 1.2rem;break-inside:avoid;overflow:hidden;border-radius:var(--r);background:var(--bg2);transition:transform .25s ease-out;transform-style:preserve-3d;will-change:transform}
+.ph[hidden]{display:none}
+.ph-btn{display:block;width:100%;padding:0;border:0;background:none}
+.ph img{width:100%;height:auto;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.ph:hover img{transform:scale(1.06)}
+.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.5rem 1.1rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,.78));display:flex;flex-direction:column;opacity:0;transition:opacity .3s;pointer-events:none}
+.ph:hover figcaption,.ph:focus-within figcaption{opacity:1}
+.ph figcaption span{font-family:var(--serif);font-size:1.25rem}
+.ph figcaption small{color:var(--muted);font-size:.85rem}
+.tilt::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,240,200,.16),transparent 55%)}
+.tilt:hover::after{opacity:1}
+.note{margin-top:1.5rem;color:var(--muted);font-size:.88rem}
+
+/* reel */
+.reel{position:relative;height:320vh;background:var(--bg2)}
+.reel-sticky{position:sticky;top:env(safe-area-inset-top,0px);height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:2.2rem}
+@supports (height:100svh){.reel-sticky{height:100svh}}
+.reel-sticky h2{padding:0 6vw;font-size:clamp(2.2rem,5vw,4rem)}
+.reel-track{display:flex;gap:2.2vw;padding:0 6vw;will-change:transform}
+.reel-item{flex:0 0 min(74vw,760px);aspect-ratio:3/2;border-radius:var(--r);overflow:hidden;position:relative;background:#000;transform-style:preserve-3d;will-change:transform}
+.reel-item button{display:block;width:100%;height:100%;padding:0;border:0;background:none}
+.reel-item img{width:100%;height:100%;object-fit:cover}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(2rem,6vw,6rem);align-items:center}
+.portrait{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:var(--r);background:var(--bg2)}
+.portrait img{position:absolute;left:0;top:-8%;width:100%;height:116%;object-fit:cover;will-change:transform}
+.about p{color:var(--muted);max-width:34rem;margin-top:1.3rem;font-size:1.05rem}
+.stats{display:flex;flex-wrap:wrap;gap:2.5rem 3.5rem;margin-top:2.6rem}
+.stat b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(2.6rem,5vw,4rem);line-height:1;color:var(--gold2);font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:.92rem}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem}
+.card{position:relative;background:var(--bg2);border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:var(--r);padding:1.8rem 1.6rem 1.6rem;transition:transform .25s ease-out,border-color .25s;transform-style:preserve-3d;will-change:transform;display:flex;flex-direction:column;gap:.8rem;min-height:15rem}
+.card:hover{border-color:var(--gold)}
+.card h3{font-size:1.9rem}
+.card p{color:var(--muted)}
+.price{margin-top:auto;padding-top:1rem;border-top:1px solid var(--line);font-size:.92rem}
+
+/* reviews */
+.rv{max-width:56rem}
+.rv-view{overflow:hidden}
+.rv-track{display:flex;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv-slide{flex:0 0 100%;padding:.2rem .2rem 0}
+.rv-slide blockquote{margin:0;font-family:var(--serif);font-size:clamp(1.6rem,3.6vw,2.7rem);line-height:1.25}
+.rv-slide figcaption{margin-top:1.4rem;color:var(--muted);font-size:.95rem}
+.rv-slide figure{margin:0}
+.tag{display:inline-block;margin-left:.6rem;padding:.1rem .6rem;border:1px solid var(--line);border-radius:999px;font-size:.78rem}
+.rv-ctl{display:flex;align-items:center;gap:1rem;margin-top:2rem}
+.iconbtn{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:none;display:grid;place-items:center;transition:border-color .2s,background .2s}
+.iconbtn:hover{border-color:var(--gold);background:rgba(212,175,55,.08)}
+.iconbtn svg{width:18px;height:18px}
+.dots{display:flex;gap:.5rem;margin-left:.5rem}
+.dots button{width:9px;height:9px;padding:0;border-radius:50%;border:1px solid var(--muted);background:none}
+.dots button[aria-current="true"]{background:var(--gold);border-color:var(--gold)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(2rem,6vw,6rem);background:var(--bg2)}
+.direct{display:flex;flex-direction:column;gap:.6rem;margin-top:2rem}
+.direct a{display:inline-flex;width:fit-content;text-decoration:none;border-bottom:1px solid var(--line);padding:.2rem 0;transition:border-color .2s}
+.direct a:hover{border-color:var(--gold)}
+form{display:grid;gap:1.15rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1.15rem}
+label{display:grid;gap:.4rem;font-size:.92rem;color:var(--muted)}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:.85rem .9rem;width:100%;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);outline:none}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+textarea{min-height:7.5rem;resize:vertical}
+[aria-invalid="true"]{border-color:#ff8a7a}
+.err{color:#ff9d8f;font-size:.85rem;min-height:1.1em}
+.status{min-height:1.5em;color:var(--gold2)}
+.status a{color:var(--gold2)}
+form .btn{width:fit-content}
+
+/* footer + floating */
+.foot{padding:3rem 6vw 2.5rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:center}
+.foot small{color:var(--muted)}
+.social{display:flex;gap:.7rem}
+.social a{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:border-color .2s,color .2s}
+.social a:hover{border-color:var(--gold);color:var(--gold2)}
+.social svg{width:19px;height:19px}
+.top-btn{background:none;border:0;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:.3rem}
+.fab{position:fixed;right:0;bottom:0;z-index:55;padding:0 18px calc(18px + env(safe-area-inset-bottom,0px)) 0}
+.fab a{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:#25d366;color:#04210f;box-shadow:0 8px 28px rgba(0,0,0,.5);transition:transform .2s}
+.fab a:hover{transform:scale(1.07)}
+.fab svg{width:30px;height:30px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:110;background:rgba(0,0,0,.94);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;padding:calc(1rem + env(safe-area-inset-top,0px)) 1rem calc(1rem + env(safe-area-inset-bottom,0px));opacity:0;transition:opacity .3s}
+.lb[hidden]{display:none}
+.lb.in{opacity:1}
+.lb figure{margin:0;display:grid;justify-items:center;gap:.9rem;min-width:0}
+.lb img{max-width:100%;max-height:calc(100vh - 8rem);width:auto;height:auto;border-radius:var(--r);transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.lb figcaption{text-align:center}
+.lb figcaption b{display:block;font-family:var(--serif);font-weight:500;font-size:1.4rem}
+.lb figcaption span{color:var(--muted);font-size:.9rem}
+.lb-close{position:absolute;right:calc(1rem);top:calc(1rem + env(safe-area-inset-top,0px));z-index:2}
+
+/* responsive */
+@media (max-width:900px){
+  .links{display:none}
+  .menu-btn{display:block}
+  .about,.contact{grid-template-columns:1fr}
+  .svc{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-fallback{right:50%;transform:translate(50%,-70%);width:min(64vw,320px)}
+}
+@media (max-width:600px){
+  .svc{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr}
+  .grid{columns:2 140px;column-gap:.7rem}
+  .ph{margin-bottom:.7rem}
+  .ph figcaption{display:none}
+  .lb{grid-template-columns:1fr}
+  .lb .lb-prev,.lb .lb-next{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
+  .js .ch,.js .hero-sub,.js .hero-cta{transform:none;opacity:1}
+  .reel{height:auto}
+  .reel-sticky{position:static;height:auto;padding:4rem 0}
+  .reel-track{overflow-x:auto;padding-bottom:1rem}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mark" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="22" fill="#0a0a0a" stroke="#d4af37" stroke-width="1.4"/>
+      <circle cx="24" cy="24" r="18.5" fill="none" stroke="#d4af37" stroke-width=".6" opacity=".7"/>
+      <g stroke="#d4af37" stroke-width="1.2" stroke-linecap="round">
+        <path d="M24 2.8v3.4M24 41.8v3.4M2.8 24h3.4M41.8 24h3.4M9 9l2.4 2.4M36.6 36.6L39 39M39 9l-2.4 2.4M11.4 36.6L9 39"/>
+      </g>
+      <text x="24" y="30.5" text-anchor="middle" font-family="'Bodoni Moda',Georgia,serif" font-weight="700" font-size="17" fill="#f0d27a">PG</text>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="loader" role="status" aria-label="Loading Pavan Grafix">
+  <div class="ld-box" id="ld-box">
+    <svg viewBox="0 0 104 104" aria-hidden="true">
+      <circle cx="52" cy="52" r="46" fill="none" stroke="rgba(243,237,226,.16)" stroke-width="1.5"/>
+      <circle id="ld-arc" cx="52" cy="52" r="46" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-dasharray="289" stroke-dashoffset="289" transform="rotate(-90 52 52)"/>
+      <use href="#mark" x="22" y="22" width="60" height="60"/>
+    </svg>
+    <div class="ld-num"><span id="ld-num">0</span>%</div>
+  </div>
+</div>
+<div class="ld-ring" id="ld-ring" aria-hidden="true"></div>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span id="cursor-label">View</span></div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="Pavan Grafix, back to top"><svg aria-hidden="true"><use href="#mark"/></svg><span>Pavan Grafix</span></a>
+    <nav class="links" aria-label="Main">
+      <a href="#work">Work</a><a href="#about">About</a><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</header>
+<div class="menu" id="menu" aria-label="Menu">
+  <a href="#work">Work</a><a href="#about">About</a><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+</div>
+
+<main id="main">
+  <section class="hero" id="top">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-fallback" aria-hidden="true"></div>
+    <div class="hero-copy">
+      <h1 id="hero-title">Pavan Grafix</h1>
+      <p class="hero-sub">Weddings, portraits, events and products, photographed the way you remember them.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#work">View work</a>
+        <a class="textlink" href="#contact">Book a shoot</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="work" aria-labelledby="work-h">
+    <div class="sec-head">
+      <div>
+        <h2 id="work-h">Selected work</h2>
+        <p class="lede">Browse by the kind of shoot you are planning. Tap any frame to view it full screen.</p>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filter photos by category"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="note">These are placeholder frames. Add your real photos in the PHOTOS list at the top of the script.</p>
+  </section>
+
+  <section class="reel" id="reel" aria-labelledby="reel-h">
+    <div class="reel-sticky">
+      <h2 id="reel-h">Featured frames</h2>
+      <div class="reel-track" id="reel-track"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="about" aria-labelledby="about-h">
+    <div class="about">
+      <div class="portrait"><img id="portrait" alt="Placeholder portrait of the photographer. Replace with a real photo."></div>
+      <div>
+        <h2 id="about-h">About Pavan Grafix</h2>
+        <p>We photograph weddings, portraits, events and products. Tell us what you are planning and we will shape the coverage around it, from the first call to the final gallery.</p>
+        <p>Replace this paragraph with your own story: who you are, how you shoot, and what clients can expect on the day.</p>
+        <div class="stats" id="stats"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="services" aria-labelledby="svc-h">
+    <div class="sec-head"><div><h2 id="svc-h">What we shoot</h2><p class="lede">Every booking is quoted to fit the day. Send your details and we will reply with a price.</p></div></div>
+    <div class="svc" id="svc"></div>
+  </section>
+
+  <section class="sec" id="reviews" aria-labelledby="rv-h">
+    <div class="rv">
+      <h2 id="rv-h" style="margin-bottom:2.2rem">Kind words</h2>
+      <div class="rv-view" aria-live="polite">
+        <div class="rv-track" id="rv-track"></div>
+      </div>
+      <div class="rv-ctl">
+        <button class="iconbtn" id="rv-prev" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button class="iconbtn" id="rv-next" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+        <div class="dots" id="rv-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec contact" id="contact" aria-labelledby="ct-h">
+    <div>
+      <h2 id="ct-h">Tell us about your shoot</h2>
+      <p class="lede">Share the date and the kind of shoot. We reply on WhatsApp, usually within a day.</p>
+      <div class="direct">
+        <a data-link="call" href="#">Call the studio</a>
+        <a data-link="wa" href="#" target="_blank" rel="noopener">Message on WhatsApp</a>
+        <a data-link="mail" href="#">Send an email</a>
+        <a data-link="ig" href="#" target="_blank" rel="noopener">Follow on Instagram</a>
+      </div>
+    </div>
+    <form id="form" novalidate>
+      <div class="row">
+        <label>Your name<input name="name" id="f-name" autocomplete="name" aria-describedby="e-name"><span class="err" id="e-name"></span></label>
+        <label>Phone number<input name="phone" id="f-phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="e-phone"><span class="err" id="e-phone"></span></label>
+      </div>
+      <div class="row">
+        <label>Type of shoot
+          <select name="type" id="f-type" aria-describedby="e-type">
+            <option value="">Choose one</option>
+            <option>Wedding</option><option>Pre-wedding</option><option>Portrait</option><option>Event</option><option>Product</option><option>Maternity and baby</option><option>Something else</option>
+          </select><span class="err" id="e-type"></span>
+        </label>
+        <label>Event date<input name="date" id="f-date" type="date" aria-describedby="e-date"><span class="err" id="e-date"></span></label>
+      </div>
+      <label>Anything we should know<textarea name="msg" id="f-msg" placeholder="Location, number of guests, style you like"></textarea></label>
+      <button class="btn" type="submit">Send on WhatsApp</button>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="foot">
+  <div>
+    <a class="brand" href="#top"><svg aria-hidden="true"><use href="#mark"/></svg><span>Pavan Grafix</span></a>
+    <small id="copy"></small>
+  </div>
+  <div class="social" id="social"></div>
+  <button class="top-btn" id="to-top">Back to top</button>
+</footer>
+
+<div class="fab"><a id="fab-wa" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.17-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14c-.25.7-1.44 1.34-1.98 1.4-.5.06-1.13.09-1.82-.12-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.16-4.94-4.35-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36h.56c.18 0 .42-.07.66.5.25.6.85 2.07.92 2.22.08.15.12.33.02.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.6.17.3.77 1.27 1.65 2.05 1.13 1 2.09 1.32 2.39 1.47.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.07.12.07.72-.18 1.42z"/></svg></a></div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <button class="iconbtn lb-close" id="lb-close" aria-label="Close viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="iconbtn lb-prev" id="lb-prev" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <figure><img id="lb-img" alt=""><figcaption><b id="lb-title"></b><span id="lb-cat"></span></figcaption></figure>
+  <button class="iconbtn lb-next" id="lb-next" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+"use strict";
+/* ============================================================
+   EDIT THIS BLOCK: all real business details live here.
+   Every value below is a PLACEHOLDER until you replace it.
+   ============================================================ */
+const CONFIG = {
+  studio: "Pavan Grafix",
+  phone: "+91 00000 00000",          // PLACEHOLDER
+  whatsapp: "910000000000",          // PLACEHOLDER: country code + number, digits only
+  email: "hello@example.com",        // PLACEHOLDER
+  instagram: "https://instagram.com/",   // PLACEHOLDER
+  youtube: "https://youtube.com/",       // PLACEHOLDER
+  facebook: "https://facebook.com/",     // PLACEHOLDER
+  stats: [                            // PLACEHOLDER numbers, replace with real ones
+    { label: "Years behind the camera", value: 5 },
+    { label: "Shoots completed", value: 300 },
+    { label: "Happy clients", value: 250 }
+  ],
+  services: [
+    { name: "Weddings", text: "Full-day coverage from getting ready to the last dance, delivered as a curated gallery.", price: "Quote on request" },
+    { name: "Pre-wedding", text: "Location shoots planned around your story, with pose and styling guidance.", price: "Quote on request" },
+    { name: "Portraits", text: "Studio and outdoor sessions for individuals, couples and families.", price: "Quote on request" },
+    { name: "Events", text: "Birthdays, engagements, corporate and cultural events, covered candidly.", price: "Quote on request" },
+    { name: "Products", text: "Clean, detailed images for catalogues, online stores and social media.", price: "Quote on request" },
+    { name: "Maternity and baby", text: "Gentle, unhurried sessions for the months before and after birth.", price: "Quote on request" }
+  ],
+  reviews: [                          // SAMPLE reviews, replace with real client words
+    { q: "They noticed the moments we would have missed. The gallery felt like a film of our day.", who: "Sample client, wedding" },
+    { q: "Relaxed on set and quick to deliver. Our family portraits are on every wall now.", who: "Sample client, portraits" },
+    { q: "The product images lifted our online store. Clean, sharp and exactly on brief.", who: "Sample client, product" }
+  ]
+};
+
+/* Add your real photos here. Set src to an image path, for example "/photos/wedding-01.webp".
+   If src is left empty, a placeholder frame is drawn so the layout still works. */
+const CATS = { wedding: "Weddings", prewedding: "Pre-wedding", portrait: "Portraits", events: "Events", product: "Products", maternity: "Maternity" };
+const PHOTOS = [
+  { cat: "wedding",    title: "First look",        w: 800, h: 1000, src: "" },
+  { cat: "portrait",   title: "Window light",      w: 800, h: 1000, src: "" },
+  { cat: "events",     title: "The dance floor",   w: 800, h: 620,  src: "" },
+  { cat: "prewedding", title: "Golden hour walk",  w: 800, h: 1080, src: "" },
+  { cat: "product",    title: "Lens on display",   w: 800, h: 800,  src: "" },
+  { cat: "maternity",  title: "Waiting for spring",w: 800, h: 1000, src: "" },
+  { cat: "wedding",    title: "Evening vows",      w: 800, h: 640,  src: "" },
+  { cat: "portrait",   title: "Quiet studio",      w: 800, h: 1040, src: "" },
+  { cat: "prewedding", title: "Shoreline",         w: 800, h: 700,  src: "" },
+  { cat: "events",     title: "Lights up",         w: 800, h: 1000, src: "" },
+  { cat: "product",    title: "Studio still life", w: 800, h: 1000, src: "" },
+  { cat: "maternity",  title: "Soft morning",      w: 800, h: 760,  src: "" }
+];
+const REEL = [
+  { cat: "wedding",    title: "Vows at dusk",       w: 1200, h: 800, src: "" },
+  { cat: "prewedding", title: "Hills at sunrise",   w: 1200, h: 800, src: "" },
+  { cat: "events",     title: "Celebration",        w: 1200, h: 800, src: "" },
+  { cat: "portrait",   title: "Study in blue",      w: 1200, h: 800, src: "" },
+  { cat: "maternity",  title: "Warm light",         w: 1200, h: 800, src: "" },
+  { cat: "product",    title: "Glass and gold",     w: 1200, h: 800, src: "" }
+];
+
+/* ============================================================ */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const FINE = matchMedia("(hover:hover) and (pointer:fine)").matches;
+const IS_MOBILE = matchMedia("(max-width: 900px)").matches || /Android|iPhone|iPad/i.test(navigator.userAgent);
+const LOW_END = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2) || (navigator.deviceMemory && navigator.deviceMemory <= 2);
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+/* ---------- placeholder frames drawn on canvas ---------- */
+function rng(seed){let s=seed>>>0;return()=>{s=(s+0x6D2B79F5)>>>0;let t=s;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}}
+const THEMES = {
+  wedding:    { sky:["#2a1a12","#c98a4b","#f6d9a0"], glow:"#ffd28a", bokeh:"#ffe2b0", hills:["#1b1210","#0d0807"], fig:"couple" },
+  prewedding: { sky:["#1a1030","#b0507a","#ffb08a"], glow:"#ffb27a", bokeh:"#ffc6a8", hills:["#241226","#0f0912"], fig:"couple" },
+  portrait:   { sky:["#0f1a24","#2f5566","#9cc3c9"], glow:"#bfe6ea", bokeh:"#cfeef0", hills:["#0d1a20","#070d10"], fig:"single" },
+  events:     { sky:["#120a1f","#5b2a86","#ff5fa2"], glow:"#ff8fd0", bokeh:"#ffd0ec", hills:["#150a22","#090410"], fig:"crowd" },
+  product:    { sky:["#0d0d0d","#242424","#3c3a35"], glow:"#f0d27a", bokeh:"#f0d27a", hills:["#111","#050505"], fig:"product" },
+  maternity:  { sky:["#241612","#a86f52","#f1c9a5"], glow:"#ffd9b5", bokeh:"#ffe6cc", hills:["#22130e","#100906"], fig:"single" }
+};
+function paint(w, h, cat, seed){
+  const c = document.createElement("canvas"); c.width = w; c.height = h;
+  const g = c.getContext("2d"), R = rng(seed), T = THEMES[cat], m = Math.min(w, h);
+  const sky = g.createLinearGradient(0,0,0,h);
+  sky.addColorStop(0,T.sky[0]); sky.addColorStop(.55,T.sky[1]); sky.addColorStop(1,T.sky[2]);
+  g.fillStyle = sky; g.fillRect(0,0,w,h);
+  const gx = w*(.25+R()*.5), gy = h*(.42+R()*.12), gl = g.createRadialGradient(gx,gy,0,gx,gy,m*.65);
+  gl.addColorStop(0,T.glow+"cc"); gl.addColorStop(1,T.glow+"00"); g.fillStyle = gl; g.fillRect(0,0,w,h);
+  for(let i=0;i<30;i++){
+    const x=R()*w,y=R()*h*.85,r=(.018+R()*.07)*m;
+    g.globalAlpha=.05+R()*.17; g.fillStyle=T.bokeh; g.beginPath(); g.arc(x,y,r,0,7); g.fill();
+    g.globalAlpha=.08; g.strokeStyle=T.bokeh; g.lineWidth=1.5; g.stroke();
+  }
+  g.globalAlpha = 1;
+  const hill=(col,base,amp,f,ph)=>{g.fillStyle=col;g.beginPath();g.moveTo(0,h);for(let x=0;x<=w;x+=8){g.lineTo(x,h*base+Math.sin(x/w*f*6.283+ph)*h*amp+Math.sin(x/w*f*17+ph*2)*h*amp*.4)}g.lineTo(w,h);g.closePath();g.fill()};
+  const person=(x,base,s,dress)=>{
+    const u=h*.1*s; g.fillStyle="#080504";
+    g.beginPath(); g.arc(x,base-u*3.15,u*.36,0,7); g.fill();
+    const hw=dress?u*1.15:u*.42;
+    g.beginPath(); g.moveTo(x-u*.42,base-u*2.7); g.quadraticCurveTo(x-u*.6,base-u*1.6,x-hw,base); g.lineTo(x+hw,base);
+    g.quadraticCurveTo(x+u*.6,base-u*1.6,x+u*.42,base-u*2.7); g.closePath(); g.fill();
+  };
+  if(T.fig==="product"){
+    g.fillStyle="#141414"; g.fillRect(0,h*.78,w,h*.22);
+    const cx=w/2, cy=h*.56, r=m*.22;
+    g.fillStyle="#1d1d1d"; g.beginPath(); g.ellipse(cx,h*.8,r*1.7,r*.32,0,0,7); g.fill();
+    const bg=g.createRadialGradient(cx,cy,0,cx,cy,r*1.4); bg.addColorStop(0,"#f0d27a55"); bg.addColorStop(1,"#f0d27a00"); g.fillStyle=bg; g.fillRect(0,0,w,h);
+    for(let k=0;k<4;k++){ g.strokeStyle=k%2?"#d4af37":"#3a3a3a"; g.lineWidth=r*.09; g.beginPath(); g.arc(cx,cy,r*(1-k*.2),0,7); g.stroke(); }
+    const cg=g.createRadialGradient(cx-r*.15,cy-r*.15,0,cx,cy,r*.4); cg.addColorStop(0,"#5b86a8"); cg.addColorStop(1,"#050a10"); g.fillStyle=cg; g.beginPath(); g.arc(cx,cy,r*.4,0,7); g.fill();
+  } else {
+    hill(T.hills[0],.74,.035,1.3,R()*6); hill(T.hills[1],.85,.03,1.8,R()*6);
+    if(T.fig==="couple"){ person(w*.43,h*.93,1,false); person(w*.57,h*.93,1.06,true); }
+    else if(T.fig==="single"){ person(w*(.4+R()*.2),h*.96,1.3,R()>.5); }
+    else { for(let i=0;i<10;i++) person(w*(.05+i*.1),h*(1.02+R()*.03),.8+R()*.45,false); }
+  }
+  const v=g.createRadialGradient(w/2,h/2,m*.3,w/2,h/2,Math.max(w,h)*.75); v.addColorStop(0,"rgba(0,0,0,0)"); v.addColorStop(1,"rgba(0,0,0,.62)"); g.fillStyle=v; g.fillRect(0,0,w,h);
+  for(let i=0;i<2600;i++){ g.fillStyle=R()>.5?"rgba(255,255,255,.05)":"rgba(0,0,0,.06)"; g.fillRect(R()*w,R()*h,1.4,1.4); }
+  return c.toDataURL("image/jpeg",.84);
+}
+
+/* ---------- loader ---------- */
+const loader=$("#loader"), ldRing=$("#ld-ring"), ldBox=$("#ld-box");
+function setProgress(p){ $("#ld-num").textContent=Math.round(p*100); $("#ld-arc").style.strokeDashoffset=289*(1-p); }
+function openShutter(){
+  return new Promise(res=>{
+    const maxR=Math.hypot(innerWidth,innerHeight)/2+40;
+    ldBox.style.opacity=0;
+    if(RM){ loader.style.transition="opacity .3s"; loader.style.opacity=0; document.body.classList.add("ready"); setTimeout(()=>{loader.remove();ldRing.remove();res()},320); return; }
+    const t0=performance.now(), D=1300; let readySet=false;
+    (function step(now){
+      const p=clamp((now-t0)/D,0,1), r=ease(p)*maxR;
+      loader.style.setProperty("--hole",r+"px");
+      ldRing.style.width=ldRing.style.height=(r*2)+"px";
+      ldRing.style.opacity=1-p*p;
+      if(!readySet&&p>.45){readySet=true;document.body.classList.add("ready")}
+      if(p<1) requestAnimationFrame(step); else { loader.remove(); ldRing.remove(); res(); }
+    })(t0);
+  });
+}
+
+/* ---------- 3D hero ---------- */
+function initHero(){
+  const canvas=$("#hero-canvas"), hero=$("#top");
+  if(typeof THREE==="undefined"||LOW_END){document.body.classList.add("no-3d");return}
+  let renderer;
+  try{ renderer=new THREE.WebGLRenderer({canvas,antialias:!IS_MOBILE,alpha:true,powerPreference:"high-performance"}); }
+  catch(e){ document.body.classList.add("no-3d"); return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, IS_MOBILE?1:1.5));
+  const scene=new THREE.Scene(), camera=new THREE.PerspectiveCamera(32,1,.1,100);
+  camera.position.set(0,0,11);
+  scene.add(new THREE.AmbientLight(0xffffff,.42));
+  const key=new THREE.DirectionalLight(0xffe2b0,1.5); key.position.set(4,5,6); scene.add(key);
+  const rim=new THREE.PointLight(0xd4af37,2.4,30); rim.position.set(-5,-2,3); scene.add(rim);
+  const cool=new THREE.PointLight(0x6aa7ff,1.3,30); cool.position.set(5,-3,-2); scene.add(cool);
+
+  const lens=new THREE.Group();
+  const dark=new THREE.MeshPhongMaterial({color:0x181614,specular:0x666666,shininess:70});
+  const darkDS=new THREE.MeshPhongMaterial({color:0x100f0e,specular:0x444444,shininess:40,side:THREE.DoubleSide});
+  const rubber=new THREE.MeshPhongMaterial({color:0x0e0e0e,specular:0x2a2a2a,shininess:25});
+  const goldM=new THREE.MeshPhongMaterial({color:0xd4af37,specular:0xfff0b0,shininess:100});
+  const cyl=(rt,rb,h,mat,z,open)=>{const m=new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,IS_MOBILE?64:96,1,!!open),mat);m.rotation.x=Math.PI/2;m.position.z=z;lens.add(m);return m};
+  const ring=(r,tube,z,mat)=>{const m=new THREE.Mesh(new THREE.TorusGeometry(r,tube,16,IS_MOBILE?80:128),mat);m.position.z=z;lens.add(m);return m};
+  cyl(1.55,1.55,3.2,dark,0);
+  cyl(1.86,1.66,.95,darkDS,2.05,true);
+  cyl(1.72,1.72,.95,rubber,-.6);
+  cyl(1.36,1.46,.45,dark,-1.85);
+  ring(1.72,.045,1.55,goldM); ring(1.58,.03,.45,goldM); ring(1.62,.03,-1.35,goldM); ring(1.86,.03,2.5,goldM);
+  const ridgeN=IS_MOBILE?60:96, ridges=new THREE.InstancedMesh(new THREE.BoxGeometry(.09,.05,.95),rubber,ridgeN), d=new THREE.Object3D();
+  for(let i=0;i<ridgeN;i++){const a=i/ridgeN*Math.PI*2;d.position.set(Math.cos(a)*1.74,Math.sin(a)*1.74,-.6);d.rotation.set(0,0,a);d.updateMatrix();ridges.setMatrixAt(i,d.matrix)}
+  lens.add(ridges);
+  const glass=new THREE.Mesh(new THREE.SphereGeometry(1.42,64,32),new THREE.MeshPhongMaterial({color:0x06121c,specular:0xffffff,shininess:260,transparent:true,opacity:.96}));
+  glass.scale.z=.35; glass.position.z=1.45; lens.add(glass);
+  [[.5,0x7b4bd6],[.85,0x2bd6a2],[1.15,0xd4af37]].forEach(([rho,col])=>{
+    const z=1.45+1.42*.35*Math.sqrt(Math.max(0,1-(rho/1.42)**2))+.012;
+    const rg=new THREE.Mesh(new THREE.RingGeometry(rho,rho+.03,80),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.5,side:THREE.DoubleSide}));
+    rg.position.z=z; lens.add(rg);
+  });
+  const fc=document.createElement("canvas"); fc.width=fc.height=128; const fg=fc.getContext("2d");
+  const gr=fg.createRadialGradient(64,64,0,64,64,64); gr.addColorStop(0,"rgba(255,255,255,1)"); gr.addColorStop(.2,"rgba(255,226,170,.55)"); gr.addColorStop(1,"rgba(255,226,170,0)");
+  fg.fillStyle=gr; fg.fillRect(0,0,128,128);
+  const flareTex=new THREE.CanvasTexture(fc);
+  const flare=new THREE.Sprite(new THREE.SpriteMaterial({map:flareTex,blending:THREE.AdditiveBlending,transparent:true,depthWrite:false,opacity:.5}));
+  flare.scale.set(1.9,1.9,1); flare.position.set(-.55,.6,2.1); lens.add(flare);
+  lens.rotation.set(.18,-.55,0);
+  scene.add(lens);
+
+  const N=IS_MOBILE?90:220, pos=new Float32Array(N*3), spd=new Float32Array(N);
+  for(let i=0;i<N;i++){pos[i*3]=(Math.random()-.5)*18;pos[i*3+1]=(Math.random()-.5)*10;pos[i*3+2]=-6+Math.random()*8;spd[i]=.15+Math.random()*.4}
+  const pg=new THREE.BufferGeometry(); pg.setAttribute("position",new THREE.BufferAttribute(pos,3));
+  const pts=new THREE.Points(pg,new THREE.PointsMaterial({map:flareTex,size:.42,transparent:true,opacity:.45,depthWrite:false,blending:THREE.AdditiveBlending,color:0xe8c26a}));
+  scene.add(pts);
+
+  let baseX=2.7,baseY=0,mx=0,my=0,tx=0,ty=0,raf=0,inView=true,t0=performance.now();
+  function size(){
+    const w=hero.clientWidth,h=hero.clientHeight; renderer.setSize(w,h,false);
+    camera.aspect=w/h; camera.updateProjectionMatrix();
+    const wide=w>900; baseX=wide?2.7:0; baseY=wide?0:1.9; const s=wide?1.12:.72; lens.scale.set(s,s,s);
+    if(RM||!raf){ lens.position.set(baseX,baseY,0); renderer.render(scene,camera); }
+  }
+  function frame(now){
+    raf=requestAnimationFrame(frame);
+    const t=(now-t0)/1000; tx+=(mx-tx)*.06; ty+=(my-ty)*.06;
+    const sp=clamp(window.scrollY/innerHeight,0,1);
+    lens.rotation.y=-.55+tx*.42+Math.sin(t*.4)*.12+sp*1.3;
+    lens.rotation.x=.18+ty*.26+Math.cos(t*.5)*.05;
+    lens.position.set(baseX,baseY+Math.sin(t*.9)*.12+sp*1.6,0);
+    camera.position.x=tx*.3; camera.lookAt(0,0,0);
+    flare.material.opacity=.3+.35*Math.max(0,Math.sin(t*.7+tx*2));
+    const a=pg.attributes.position.array;
+    for(let i=0;i<N;i++){a[i*3+1]+=spd[i]*.01; if(a[i*3+1]>5)a[i*3+1]=-5}
+    pg.attributes.position.needsUpdate=true;
+    canvas.style.opacity=1-sp*.85;
+    renderer.render(scene,camera);
+  }
+  const start=()=>{ if(!raf&&!RM&&inView&&!document.hidden) raf=requestAnimationFrame(frame) };
+  const stop=()=>{ if(raf){cancelAnimationFrame(raf);raf=0} };
+  if(!RM){
+    addEventListener("pointermove",e=>{mx=(e.clientX/innerWidth-.5)*2;my=(e.clientY/innerHeight-.5)*2},{passive:true});
+    new IntersectionObserver(([e])=>{inView=e.isIntersecting;inView?start():stop()},{threshold:0}).observe(hero);
+    document.addEventListener("visibilitychange",()=>document.hidden?stop():start());
+  }
+  if("ResizeObserver" in window) new ResizeObserver(size).observe(hero); else addEventListener("resize",size);
+  size(); start();
+  canvas.addEventListener("webglcontextlost",e=>{e.preventDefault();stop();document.body.classList.add("no-3d")});
+}
+
+/* ---------- tilt ---------- */
+function tilt(el,max){
+  if(!FINE||RM) return;
+  el.addEventListener("pointermove",e=>{
+    const r=el.getBoundingClientRect(), x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+    el.style.transform=`perspective(900px) rotateX(${(.5-y)*max}deg) rotateY(${(x-.5)*max}deg)`;
+    el.style.setProperty("--gx",x*100+"%"); el.style.setProperty("--gy",y*100+"%");
+  });
+  el.addEventListener("pointerleave",()=>{el.style.transform=""});
+}
+
+/* ---------- lightbox ---------- */
+const lb=$("#lb"), lbImg=$("#lb-img"); let lbList=[], lbIdx=0, lbFocus=null;
+function lbShow(i){
+  lbIdx=(i+lbList.length)%lbList.length; const it=lbList[lbIdx];
+  lbImg.src=it.url; lbImg.alt=it.title; $("#lb-title").textContent=it.title; $("#lb-cat").textContent=CATS[it.cat];
+}
+async function lbOpen(list,i,origin){
+  lbList=list; lbFocus=document.activeElement; lb.hidden=false; document.documentElement.classList.add("locked");
+  lbShow(i); try{ await lbImg.decode() }catch(e){}
+  requestAnimationFrame(()=>{
+    if(origin&&!RM){
+      const a=origin.getBoundingClientRect(), b=lbImg.getBoundingClientRect();
+      if(b.width){
+        lbImg.style.transition="none";
+        lbImg.style.transform=`translate(${a.left+a.width/2-(b.left+b.width/2)}px,${a.top+a.height/2-(b.top+b.height/2)}px) scale(${a.width/b.width})`;
+        lbImg.getBoundingClientRect(); lbImg.style.transition=""; lbImg.style.transform="";
+      }
+    }
+    lb.classList.add("in"); $("#lb-close").focus();
+  });
+}
+function lbClose(){
+  lb.classList.remove("in");
+  setTimeout(()=>{lb.hidden=true;document.documentElement.classList.remove("locked");if(lbFocus&&lbFocus.focus)lbFocus.focus()},RM?0:300);
+}
+$("#lb-close").addEventListener("click",lbClose);
+$("#lb-prev").addEventListener("click",()=>lbShow(lbIdx-1));
+$("#lb-next").addEventListener("click",()=>lbShow(lbIdx+1));
+lb.addEventListener("click",e=>{if(e.target===lb)lbClose()});
+document.addEventListener("keydown",e=>{
+  if(lb.hidden) return;
+  if(e.key==="Escape") lbClose();
+  else if(e.key==="ArrowLeft") lbShow(lbIdx-1);
+  else if(e.key==="ArrowRight") lbShow(lbIdx+1);
+  else if(e.key==="Tab"){
+    const f=$$("#lb button").filter(b=>b.offsetParent!==null); if(!f.length) return;
+    const first=f[0], last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+  }
+});
+let sx=0; lb.addEventListener("touchstart",e=>{sx=e.changedTouches[0].clientX},{passive:true});
+lb.addEventListener("touchend",e=>{const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50) lbShow(lbIdx+(dx<0?1:-1))},{passive:true});
+
+/* ---------- build sections ---------- */
+function buildGallery(){
+  const grid=$("#grid"), filters=$("#filters"); let current="all";
+  const visible=()=>PHOTOS.filter(p=>current==="all"||p.cat===current);
+  PHOTOS.forEach(p=>{
+    const fig=document.createElement("figure"); fig.className="ph tilt"; fig.dataset.cat=p.cat; fig.dataset.cursor="View";
+    fig.innerHTML=`<button class="ph-btn" type="button" aria-label="Open photo: ${p.title}"><img src="${p.url}" alt="${p.title}, ${CATS[p.cat]}" width="${p.w}" height="${p.h}" loading="lazy" decoding="async"></button><figcaption><span>${p.title}</span><small>${CATS[p.cat]}</small></figcaption>`;
+    fig.querySelector("button").addEventListener("click",()=>{const l=visible();lbOpen(l,l.indexOf(p),fig.querySelector("img"))});
+    p.el=fig; grid.appendChild(fig); tilt(fig,9);
+  });
+  const cats=["all",...new Set(PHOTOS.map(p=>p.cat))];
+  cats.forEach(c=>{
+    const b=document.createElement("button"); b.type="button"; b.textContent=c==="all"?"All":CATS[c]; b.setAttribute("aria-pressed",c==="all");
+    b.addEventListener("click",()=>{
+      current=c; $$("button",filters).forEach(x=>x.setAttribute("aria-pressed",x===b));
+      PHOTOS.forEach(p=>{p.el.hidden=!(c==="all"||p.cat===c)});
+    });
+    filters.appendChild(b);
+  });
+}
+function buildReel(){
+  const track=$("#reel-track");
+  REEL.forEach((p,i)=>{
+    const d=document.createElement("div"); d.className="reel-item"; d.dataset.cursor="View";
+    d.innerHTML=`<button type="button" aria-label="Open photo: ${p.title}"><img src="${p.url}" alt="${p.title}, ${CATS[p.cat]}" width="${p.w}" height="${p.h}" loading="lazy" decoding="async"></button>`;
+    d.querySelector("button").addEventListener("click",()=>lbOpen(REEL,i,d.querySelector("img")));
+    track.appendChild(d);
+  });
+}
+function buildStatic(){
+  $("#stats").innerHTML=CONFIG.stats.map(s=>`<div class="stat"><b data-count="${s.value}">0</b><span>${s.label}</span></div>`).join("");
+  $("#svc").innerHTML=CONFIG.services.map(s=>`<article class="card tilt"><h3>${s.name}</h3><p>${s.text}</p><div class="price">${s.price}</div></article>`).join("");
+  $$(".card").forEach(c=>tilt(c,10));
+  $("#rv-track").innerHTML=CONFIG.reviews.map(r=>`<div class="rv-slide"><figure><blockquote>${r.q}</blockquote><figcaption>${r.who}<span class="tag">Sample review</span></figcaption></figure></div>`).join("");
+  $("#copy").textContent=`\u00A9 ${new Date().getFullYear()} ${CONFIG.studio}. All rights reserved.`;
+  const wa=`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("Hi, I found you on your website and would like to know more.")}`;
+  $("#fab-wa").href=wa;
+  $$("[data-link]").forEach(a=>{
+    const k=a.dataset.link;
+    a.href = k==="call"?`tel:${CONFIG.phone.replace(/\s+/g,"")}` : k==="wa"?wa : k==="mail"?`mailto:${CONFIG.email}` : CONFIG.instagram;
+  });
+  const ico={
+    ig:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>',
+    yt:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/></svg>',
+    fb:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V6.9c0-.8.2-1.2 1.3-1.2H17V3h-2.5C11.7 3 10.6 4.5 10.6 6.7v1.8H8.5V11h2.1v10H14V11h2.7l.4-2.5z"/></svg>',
+    wa:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.17-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14c-.25.7-1.44 1.34-1.98 1.4-.5.06-1.13.09-1.82-.12-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.16-4.94-4.35-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36h.56c.18 0 .42-.07.66.5.25.6.85 2.07.92 2.22.08.15.12.33.02.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.6.17.3.77 1.27 1.65 2.05 1.13 1 2.09 1.32 2.39 1.47.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.07.12.07.72-.18 1.42z"/></svg>'
+  };
+  $("#social").innerHTML=[["Instagram",CONFIG.instagram,ico.ig],["YouTube",CONFIG.youtube,ico.yt],["Facebook",CONFIG.facebook,ico.fb],["WhatsApp",wa,ico.wa]]
+    .map(([n,u,i])=>`<a href="${u}" target="_blank" rel="noopener" aria-label="${n}">${i}</a>`).join("");
+}
+
+/* ---------- reviews slider ---------- */
+function initReviews(){
+  const track=$("#rv-track"), n=CONFIG.reviews.length, dots=$("#rv-dots"); let i=0;
+  for(let k=0;k<n;k++){const b=document.createElement("button");b.type="button";b.setAttribute("aria-label",`Show review ${k+1}`);b.addEventListener("click",()=>go(k));dots.appendChild(b)}
+  function go(k){ i=(k+n)%n; track.style.transform=`translateX(${-i*100}%)`; $$("button",dots).forEach((b,j)=>b.setAttribute("aria-current",j===i)); $$(".rv-slide",track).forEach((s,j)=>s.setAttribute("aria-hidden",j!==i)) }
+  $("#rv-prev").addEventListener("click",()=>go(i-1)); $("#rv-next").addEventListener("click",()=>go(i+1));
+  let x0=0; track.addEventListener("touchstart",e=>{x0=e.changedTouches[0].clientX},{passive:true});
+  track.addEventListener("touchend",e=>{const dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>50) go(i+(dx<0?1:-1))},{passive:true});
+  go(0);
+}
+
+/* ---------- counters ---------- */
+function initCounters(){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting) return; io.unobserve(e.target);
+    const el=e.target, end=+el.dataset.count; if(RM){el.textContent=end;return}
+    const t0=performance.now(), D=1500;
+    (function s(now){const p=clamp((now-t0)/D,0,1);el.textContent=Math.round(end*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(s)})(t0);
+  }),{threshold:.6});
+  $$("[data-count]").forEach(el=>io.observe(el));
+}
+
+/* ---------- form ---------- */
+function initForm(){
+  const f=$("#form"), date=$("#f-date"), status=$("#status");
+  date.min=new Date().toISOString().slice(0,10);
+  const fields={name:$("#f-name"),phone:$("#f-phone"),type:$("#f-type"),date};
+  const set=(k,msg)=>{const el=fields[k];$("#e-"+k).textContent=msg||"";el.setAttribute("aria-invalid",msg?"true":"false")};
+  f.addEventListener("submit",e=>{
+    e.preventDefault(); status.innerHTML="";
+    const name=fields.name.value.trim(), phone=fields.phone.value.trim(), digits=phone.replace(/\D/g,""), type=fields.type.value, d=fields.date.value;
+    let ok=true, first=null;
+    const bad=(k,m)=>{set(k,m);ok=false;first=first||fields[k]};
+    set("name");set("phone");set("type");set("date");
+    if(name.length<2) bad("name","Enter your name.");
+    if(digits.length<8||digits.length>15) bad("phone","Enter a phone number with 8 to 15 digits.");
+    if(!type) bad("type","Choose the type of shoot.");
+    if(d&&d<date.min) bad("date","Choose today or a later date.");
+    if(!ok){first.focus();return}
+    const msg=`Hi ${CONFIG.studio}, I'm ${name}.\nShoot type: ${type}\nDate: ${d||"Not decided yet"}\nPhone: ${phone}\n${$("#f-msg").value.trim()?"Notes: "+$("#f-msg").value.trim():""}`.trim();
+    const url=`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+    status.innerHTML=`Your details are ready. <a href="${url}" target="_blank" rel="noopener">Continue on WhatsApp</a> if it did not open on its own.`;
+    try{ window.open(url,"_blank","noopener") }catch(err){}
+  });
+}
+
+/* ---------- menu, cursor, scroll ---------- */
+function initUI(){
+  const btn=$("#menu-btn"), menu=$("#menu");
+  const setMenu=o=>{menu.classList.toggle("open",o);btn.setAttribute("aria-expanded",o);btn.textContent=o?"Close":"Menu";document.documentElement.classList.toggle("locked",o)};
+  btn.addEventListener("click",()=>setMenu(!menu.classList.contains("open")));
+  $$("a",menu).forEach(a=>a.addEventListener("click",()=>setMenu(false)));
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&menu.classList.contains("open")){setMenu(false);btn.focus()}});
+  $("#to-top").addEventListener("click",()=>scrollTo({top:0,behavior:RM?"auto":"smooth"}));
+
+  if(FINE){
+    document.documentElement.classList.add("fine-cursor");
+    const cur=$("#cursor"), lab=$("#cursor-label"); let x=0,y=0,cx=0,cy=0,run=false;
+    const loop=()=>{cx+=(x-cx)*.22;cy+=(y-cy)*.22;cur.style.transform=`translate3d(${cx}px,${cy}px,0)`;requestAnimationFrame(loop)};
+    addEventListener("pointermove",e=>{x=e.clientX;y=e.clientY;cur.classList.add("on");if(!run){run=true;cx=x;cy=y;loop()}},{passive:true});
+    document.addEventListener("pointerleave",()=>cur.classList.remove("on"));
+    document.addEventListener("pointerover",e=>{
+      const t=e.target.closest&&e.target.closest("[data-cursor]");
+      if(t){lab.textContent=t.dataset.cursor;cur.classList.add("big")} else cur.classList.remove("big");
+    });
+  }
+
+  const nav=$("#nav"), portrait=$("#portrait"), about=$("#about"), reel=$("#reel"), track=$("#reel-track");
+  let tick=false;
+  const items=()=>$$(".reel-item",track);
+  function onScroll(){
+    tick=false; const y=scrollY;
+    nav.classList.toggle("solid",y>40);
+    if(!RM){
+      const r=about.getBoundingClientRect();
+      if(r.top<innerHeight&&r.bottom>0) portrait.style.transform=`translateY(${((r.top+r.height/2-innerHeight/2)/innerHeight)*-9}%)`;
+      const total=reel.offsetHeight-innerHeight, p=clamp((y-reel.offsetTop)/total,0,1);
+      const dist=Math.max(0,track.scrollWidth-innerWidth);
+      track.style.transform=`translate3d(${-p*dist}px,0,0)`;
+      if(FINE) items().forEach(el=>{const b=el.getBoundingClientRect(),c=(b.left+b.width/2-innerWidth/2)/innerWidth;el.style.transform=`perspective(1200px) rotateY(${clamp(c,-1,1)*-7}deg) scale(${1-Math.min(.06,Math.abs(c)*.06)})`});
+    }
+  }
+  addEventListener("scroll",()=>{if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+  addEventListener("resize",onScroll);
+  onScroll();
+}
+
+/* ---------- boot ---------- */
+function splitTitle(){
+  const h=$("#hero-title"), words=h.textContent.trim().split(/\s+/);
+  h.setAttribute("aria-label",h.textContent.trim());
+  h.innerHTML=words.map((w,wi)=>`<span class="line" aria-hidden="true">${[...w].map((c,i)=>`<span class="ch" style="--i:${wi*6+i}">${c}</span>`).join("")}</span>`).join("");
+}
+const tick0=()=>new Promise(r=>setTimeout(r,0));
+async function boot(){
+  document.documentElement.classList.add("locked");
+  splitTitle();
+  const all=[...PHOTOS,...REEL]; let done=0; const total=all.length+1;
+  try{ await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,2500))]) }catch(e){}
+  done++; setProgress(done/total);
+  let seed=11;
+  for(const p of all){
+    p.url=p.src||paint(p.w,p.h,p.cat,seed+=7);
+    done++; setProgress(done/total); await tick0();
+  }
+  buildGallery(); buildReel(); buildStatic();
+  $("#portrait").src=paint(800,1000,"portrait",4242);
+  initReviews(); initCounters(); initForm(); initUI(); initHero();
+  await new Promise(r=>setTimeout(r,RM?0:250));
+  await openShutter();
+  document.documentElement.classList.remove("locked");
+}
+boot();
+</script>
+</body>
 </html>
